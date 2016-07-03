@@ -94,10 +94,12 @@ class UnorderedList:
 			while current.get_next() != None:
 				current = current.get_next()
 			t=Node(item)
-			t.set_next = current.get_next()
+			t.set_next(current.get_next())
 			current.set_next(t) 
 		else:
-			raise Exception("List is Empty")
+			t=Node(item)
+			t.set_next(None)
+			self.head = t
 
 	def insert(self,pos,item): #insert an item at specified position in the linked list
 		current = self.head
