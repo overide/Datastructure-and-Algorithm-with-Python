@@ -176,6 +176,25 @@ class UnorderedList:
 					raise Exception("Index out of bound")
 		else:
 			raise Exception("List is empty")
+	def getNode(self,index): # Return node at given index
+		current = self.head
+		pos = -1
+		found = False
+		node = None
+		if index in range(self.size()):
+			while(current != None and not found):
+				pos += 1
+				if pos == index:
+					found = True
+					node = current
+				else:
+					current = current.get_next()
+			if found:
+				return node
+			else:
+				raise Exception("No such item in list found")
+		else:
+			raise Exception("Index out of range")
 
 	def is_empty(self): # check whether list is empty or not, return boolean value
 		return self.head == None
